@@ -11,7 +11,6 @@ struct LandmarkList: View {
     @EnvironmentObject var userData:UserData
     
     var body: some View {
-        NavigationView {
             List{
                 
                 Toggle(isOn: $userData.showFavoritesOnly) {
@@ -26,12 +25,13 @@ struct LandmarkList: View {
                 }
             }
             .navigationBarTitle(Text("Landmarks"))
-        }
     }
 }
 
 struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView{
         LandmarkList().environmentObject(UserData())
+        }
     }
 }
